@@ -1,43 +1,33 @@
 package com.example.examplewithkotlin
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    val listFragment = ListFragment()
-    val practiceFragment = PracticeFragment()
-    var isAttachFragment = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setButtons()
+
+        setFragments()
     }
 
-    private fun addListFragment() {
-        if(isAttachFragment) { return }
+    private fun setFragments() {
+        val listFragment = ListFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.frameLayout, listFragment)
         transaction.commit()
-        isAttachFragment = true
     }
 
-    private fun delListFragment() {
-        if(!isAttachFragment) { return }
+    fun goDetail() {
+        val detailFragment = DetailFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.remove(listFragment)
+        transaction.add(R.id.frameLayout, detailFragment)
+        transaction.addToBackStack("detail")
         transaction.commit()
-        isAttachFragment = false
     }
 
-    private fun setButtons() {
-        addButton.setOnClickListener(View.OnClickListener {
-            this.addListFragment()
-        })
-        delButton.setOnClickListener(View.OnClickListener {
-            this.delListFragment()
-        })
+    fun goBack() {
+       onBackPressed()
     }
 }

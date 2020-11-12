@@ -10,10 +10,10 @@
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,23 +27,7 @@
             android:gravity="center"
             android:text="Fragment"
             android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:text="add"
-            />
-
-        <Button
-            android:id="@+id/delButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="del"
-            />
     </LinearLayout>
-
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -52,7 +36,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout"></FrameLayout>
 
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
