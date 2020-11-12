@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     val listFragment = ListFragment()
     val practiceFragment = PracticeFragment()
-    var isAttachFragment = false;
+    var isAttachFragment = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,17 +19,17 @@ class MainActivity : AppCompatActivity() {
     private fun addListFragment() {
         if(isAttachFragment) { return }
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.frameLayout, practiceFragment)
+        transaction.add(R.id.frameLayout, listFragment)
         transaction.commit()
-        isAttachFragment = true;
+        isAttachFragment = true
     }
 
     private fun delListFragment() {
         if(!isAttachFragment) { return }
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.remove(practiceFragment)
+        transaction.remove(listFragment)
         transaction.commit()
-        isAttachFragment = false;
+        isAttachFragment = false
     }
 
     private fun setButtons() {
