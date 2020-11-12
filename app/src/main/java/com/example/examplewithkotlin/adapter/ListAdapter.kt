@@ -35,6 +35,10 @@ class ListAdapter: RecyclerView.Adapter<PhoneVH>() {
     fun setClickEventListener(onClickListener: View.OnClickListener) {
        clickListener = onClickListener
     }
+
+    fun getData(): MutableList<PhoneModel> {
+       return phoneList
+    }
 }
 
 class PhoneVH(itemView: View) : RecyclerView.ViewHolder(itemView) {

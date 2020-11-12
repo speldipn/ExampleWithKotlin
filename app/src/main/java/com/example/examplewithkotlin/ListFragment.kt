@@ -36,9 +36,11 @@ class ListFragment : Fragment() {
     private fun setup() {
         phoneAdapter?.setDataAndRefresh(getData())
         phoneAdapter?.setClickEventListener(View.OnClickListener { view ->
-            mainActivity?.goDetail()
+            val position = recyclerView.getChildLayoutPosition(view)
+            val data = phoneAdapter!!.getData()[position]
+            mainActivity?.goDetail(data)
         })
-        recyclerView?.adapter = phoneAdapter
+        recyclerView.adapter = phoneAdapter
         recyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
     }

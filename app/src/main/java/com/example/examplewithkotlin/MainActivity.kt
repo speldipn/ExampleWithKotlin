@@ -2,6 +2,7 @@ package com.example.examplewithkotlin
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.examplewithkotlin.model.PhoneModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +20,15 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun goDetail() {
+    fun goDetail(data: PhoneModel) {
+        val bundle = Bundle()
+        bundle.putString("name", data.name)
+        bundle.putString("phone", data.phone)
+        bundle.putInt("age", data.age)
+
         val detailFragment = DetailFragment()
+        detailFragment.arguments = bundle
+
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.frameLayout, detailFragment)
         transaction.addToBackStack("detail")
