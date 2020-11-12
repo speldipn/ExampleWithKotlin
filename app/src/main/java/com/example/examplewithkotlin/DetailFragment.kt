@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
 class DetailFragment : Fragment() {
@@ -17,31 +16,31 @@ class DetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
-        view.backButton.setOnClickListener(View.OnClickListener {
-            mainActivity?.goBack()
-        })
+        setEventListener(view)
+        getArgumentsAndSetData(view)
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        getArgumentsAndSetData()
+    private fun setEventListener(view: View) {
+        view.backButton.setOnClickListener(View.OnClickListener {
+            mainActivity?.goBack()
+        })
     }
 
-    private fun getArgumentsAndSetData() {
-        val name = this.arguments?.getString("name")
+    private fun getArgumentsAndSetData(view: View) {
+        val name = arguments?.getString("name")
         if (name != null) {
-            nameTextView.setText(name)
+            view.nameTextView.setText(name)
         }
 
-        val age = this.arguments?.getInt("age")
+        val age = arguments?.getInt("age")
         if (age != null) {
-            ageTextView.setText(String.format("%d", age))
+            view.ageTextView.setText(String.format("%d", age))
         }
 
-        val phone = this.arguments?.getString("phone")
+        val phone = arguments?.getString("phone")
         if (phone != null) {
-            phoneTextView.setText(phone)
+            view.phoneTextView.setText(phone)
         }
     }
 
