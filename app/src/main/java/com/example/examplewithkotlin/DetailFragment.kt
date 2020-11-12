@@ -24,6 +24,6 @@ class DetailFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mainActivity = context as MainActivity?
+        mainActivity = context as MainActivity
     }
 }

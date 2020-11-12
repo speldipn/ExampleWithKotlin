@@ -30,7 +30,7 @@ class ListFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mainActivity = context as MainActivity?
+        mainActivity = context as MainActivity
     }
 
     private fun setup() {
