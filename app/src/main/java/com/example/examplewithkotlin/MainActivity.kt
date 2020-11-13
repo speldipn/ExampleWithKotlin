@@ -14,9 +14,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setFragments() {
+        /*
         val listFragment = ListFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.frameLayout, listFragment)
+        transaction.commit()
+         */
+        val customViewFragment = CustomViewFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.frameLayout, customViewFragment)
         transaction.commit()
     }
 
