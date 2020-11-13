@@ -23,7 +23,7 @@ class DetailFragment : Fragment() {
 
     private fun setEventListener(view: View) {
         view.backButton.setOnClickListener(View.OnClickListener {
-            mainActivity?.goBack()
+//            mainActivity?.goBack()
         })
     }
 

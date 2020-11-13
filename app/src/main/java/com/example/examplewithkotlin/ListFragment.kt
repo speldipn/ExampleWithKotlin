@@ -38,7 +38,7 @@ class ListFragment : Fragment() {
         phoneAdapter?.setClickEventListener(View.OnClickListener { view ->
             val position = recyclerView.getChildLayoutPosition(view)
             val data = phoneAdapter!!.getData()[position]
-            mainActivity?.goDetail(data)
+//            mainActivity?.goDetail(data)
         })
         recyclerView.adapter = phoneAdapter
         recyclerView.layoutManager =
