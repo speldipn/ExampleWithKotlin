@@ -12,10 +12,6 @@ import androidx.viewpager.widget.ViewPager
 import com.example.examplewithkotlin.fragments.OneFragment
 import com.example.examplewithkotlin.fragments.ThreeFragment
 import com.example.examplewithkotlin.fragments.TwoFragment
-import com.example.examplewithkotlin.views.CustomA
-import com.example.examplewithkotlin.views.CustomB
-import com.example.examplewithkotlin.views.CustomC
-import kotlinx.android.synthetic.main.activity_main.*
 
 class FragmentAdapter(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
     var list = listOf<Fragment>()
@@ -80,16 +76,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        setFragments()
-        init()
+//        init()
+        initViewPagerUsingFragment()
     }
 
     private fun init() {
-        val views = listOf(
-            CustomA(this), CustomB(this),
-            CustomC(this), CustomC(this))
-        val customPagerAdapter = CustomPagerAdapter()
-        customPagerAdapter.setItems(views)
-        viewPager.adapter = customPagerAdapter
+//        val views = listOf(
+//            CustomA(this), CustomB(this),
+//            CustomC(this), CustomC(this))
+//        val customPagerAdapter = CustomPagerAdapter()
+//        customPagerAdapter.setItems(views)
+//        viewPager.adapter = customPagerAdapter
     }
 
     private fun initViewPagerUsingFragment() {
